@@ -1,0 +1,9 @@
+Project goals:
+1. Have the code choose between 3 different options randomly
+    Rock, paper, scissors
+2. Have the user choose one of those options (Make sure it isn't
+    case sensitive)
+3. Test the player's choice against the code's. Use return, not logs
+4. State if the player won or lost
+5. Make the above into a function, loop 5 times
+6. State the final score, and the winner
