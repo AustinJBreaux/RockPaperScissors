@@ -11,3 +11,10 @@ let getComputerChoice = function randomChoice(){
         return console.log(scissors);
     }
 }
+let getPlayerChoice = function playerChoice(){
+    prompt("Rock, paper, or scissors?","Rock, paper, or scissors");
+    if (playerChoice != null){
+        console.log(playerChoice);
+    }
+    
+}
