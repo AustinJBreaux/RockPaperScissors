@@ -12,9 +12,13 @@ let getComputerChoice = function randomChoice(){
     }
 }
 let getPlayerChoice = function playerChoice(){
-    prompt("Rock, paper, or scissors?","Rock, paper, or scissors");
-    if (playerChoice != null){
-        console.log(playerChoice);
+    let playerAnswer = prompt("Please choose between rock, paper, or scissors","Rock, Paper, Scissors");
+    playerResponse = playerAnswer.toLowerCase().toString();
+    if(playerResponse === "rock" || "paper" ||"scissors"){
+        console.log(playerResponse);
     }
-    
+    else{
+        console.log("Please check your spelling and try again");
+        getPlayerChoice();
+    }
 }
