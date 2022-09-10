@@ -13,8 +13,12 @@ let getComputerChoice = function randomChoice(){
 }
 let getPlayerChoice = function playerChoice(){
     let playerAnswer = prompt("Please choose between rock, paper, or scissors","Rock, Paper, Scissors");
-    playerResponse = playerAnswer.toLowerCase().toString();
-    if(playerResponse === "rock" || "paper" ||"scissors"){
+    let op1 = "rock";
+    let op2 = "paper";
+    let op3 = "scissors";
+    let playerResponse = playerAnswer.toLowerCase();
+    if(playerResponse === op1 || playerResponse === op2
+    || playerResponse === op3){
         console.log(playerResponse);
     }
     else{
