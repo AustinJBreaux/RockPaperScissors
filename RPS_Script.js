@@ -25,10 +25,16 @@ let getPlayerChoice = function playerChoice(){
                         return "It's a tie!"
                     }
                     else if(playerResponse === op2){
-                        return "Player wins!"
+                        if(playerWinCounter != undefined){
+                            playerWinCounter +=1;
+                        }
+                        return "Player wins!";
                     }
                     else if(playerResponse === op3){
-                        return "Computer wins!"
+                        if(playerWinCounter != undefined){
+                            computerWinCounter +=1;
+                        }
+                        return "Computer wins!";
                     }
                     else{
                         console.log("Error")
@@ -36,13 +42,19 @@ let getPlayerChoice = function playerChoice(){
                 break;
             case 2:/*Comp paper */
                     if(playerResponse === op1){
-                        return "Computer wins!!"
+                        if(playerWinCounter != undefined){
+                            computerWinCounter +=1;
+                        }
+                        return "Computer wins!";
                     }
                     else if(playerResponse === op2){
                         return "It's a tie!"
                     }
                     else if(playerResponse === op3){
-                        return "Player Wins!"
+                        if(playerWinCounter != undefined){
+                            playerWinCounter +=1;
+                        }
+                        return "Player Wins!";
                     }
                     else{
                         console.log("Error")
@@ -50,10 +62,16 @@ let getPlayerChoice = function playerChoice(){
                 break;
             case 3:/*Comp scissors*/
                     if(playerResponse === op1){
-                        return "Player wins!"
+                        if(playerWinCounter != undefined){
+                            playerWinCounter +=1;
+                        }
+                        return "Player wins!";
                     }
                     else if(playerResponse === op2){
-                        return "Computer wins!"
+                        if(playerWinCounter != undefined){
+                            computerWinCounter +=1;
+                        }
+                        return "Computer wins!";
                     }
                     else if(playerResponse === op3){
                         return "It's a tie!"
@@ -67,5 +85,24 @@ let getPlayerChoice = function playerChoice(){
     else{
         console.log("Please check your spelling and try again");
         getPlayerChoice();
+    }
+}
+playGame = function gameStart(){
+    let playerWinCounter = 0;
+    let computerWinCounter = 0;
+    do{
+        getPlayerChoice(playerWinCounter, computerWinCounter);
+        console.log(`Player:${playerWinCounter}. Computer:${computerWinCounter}`)
+    }
+    while(playerWinCounter < 5 || computerWinCounter < 5){
+        if(playerWinCounter === 5){
+            return "Congrats! You win! Play again?"
+        }
+        else if(computerWinCounter === 5){
+            return "Computer wins! Better luck next time!"
+        }
+        else{
+            return "Error at end game"
+        }
     }
 }
