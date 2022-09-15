@@ -19,7 +19,6 @@ let getPlayerChoice = function playerChoice(){
     let playerResponse = playerAnswer.toLowerCase();
     if(playerResponse === op1 || playerResponse === op2
     || playerResponse === op3){
-        getComputerChoice();
         switch(getComputerChoice()){
             case 1: /*Comp rock*/
                     if(playerResponse === op1){
