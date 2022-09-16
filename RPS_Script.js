@@ -28,7 +28,7 @@ let getPlayerChoice = function playerChoice(){
         switch(getComputerChoice()){
             case 1: /*Comp rock*/
                     if(playerResponse === op1){/*Player rock*/
-                        return "It's a tie!"
+                        return console.log("It's a tie!")
                     }
                     else if(playerResponse === op2){/*Player paper*/
                         playerWinCounter +=1;
@@ -45,7 +45,7 @@ let getPlayerChoice = function playerChoice(){
                         computerWinCounter +=1;
                     }
                     else if(playerResponse === op2){/*Player paper*/
-                        return "It's a tie!"
+                        return console.log("It's a tie!")
                     }
                     else if(playerResponse === op3){/*Player scissors*/
                             playerWinCounter +=1;
@@ -62,7 +62,7 @@ let getPlayerChoice = function playerChoice(){
                         computerWinCounter +=1;
                     }
                     else if(playerResponse === op3){/*Player scissors*/
-                        return "It's a tie!"
+                        return console.log("It's a tie!")
                     }
                     else{
                         console.log("Error")
@@ -82,12 +82,12 @@ playGame = function gameStart(){
         console.log(`Player:${playerWinCounter}. Computer:${computerWinCounter}`)
         getPlayerChoice();
     }
-    while(playerWinCounter < 5 || computerWinCounter < 5){
+    while(playerWinCounter <= 5 || computerWinCounter <= 5){
         if(playerWinCounter === 5){
-            return "Congrats! You win! Play again?"
+            return `Congrats! You win! Final score is ${playerWinCounter} to ${computerWinCounter}. Play again?`;
         }
         else if(computerWinCounter === 5){
-            return "Computer wins! Better luck next time!"
+            return `Computer wins! Better luck next time! Final score is ${computerWinCounter} to ${playerWinCounter}. Play again?`
         }
         else{
             return "Error at end game"
