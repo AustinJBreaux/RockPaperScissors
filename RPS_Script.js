@@ -1,8 +1,13 @@
 /*Declares global variables*/
 let playerWinCounter = 0;
 let computerWinCounter = 0;
-window.addEventListener('click', getPlayerChoice(e))
 
+//window.addEventListener('click', function(e){
+    //console.log(e);
+//})
+document.addEventListener('click', function(e){
+    console.log(e.class);
+});
 /*Chooses a random number between 1-3, and based on that logs rock/paper/scissors to the console*/
 let getComputerChoice = function randomChoice(){
     let currentRoundChoice = Math.floor(Math.random()*3)+1;
@@ -16,12 +21,15 @@ let getComputerChoice = function randomChoice(){
         return currentRoundChoice = 3;
     }
 }
-
+/*
+TO DO:
+Set an if function for each of the 3 buttons, if button.rock set __ = rock
+Then copy/paste that switch down there to it's own function, run the ___
+as an argument in that, and the rest of the code should work from there
+*/
 /*Get player's input, and test it against the random computer choice*/
-let getPlayerChoice = function playerChoice(){
-    let playerAnswer = e.button.class;
-    if(playerResponse === "rock" || playerResponse === "paper"
-    || playerResponse === "scissors"){
+let getPlayerChoice = function playerChoice(e){
+    if(e = button){
         switch(getComputerChoice()){
             case 1: /*Comp rock*/
                     if(playerResponse === "rock"){/*Player rock*/
