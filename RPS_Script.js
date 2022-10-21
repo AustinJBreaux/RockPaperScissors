@@ -1,6 +1,7 @@
 /*Declares global variables*/
 let playerWinCounter = 0;
 let computerWinCounter = 0;
+window.addEventListener('click', getPlayerChoice(e))
 
 /*Chooses a random number between 1-3, and based on that logs rock/paper/scissors to the console*/
 let getComputerChoice = function randomChoice(){
@@ -18,22 +19,18 @@ let getComputerChoice = function randomChoice(){
 
 /*Get player's input, and test it against the random computer choice*/
 let getPlayerChoice = function playerChoice(){
-    let playerAnswer = prompt("Please choose between rock, paper, or scissors","Rock, Paper, Scissors");
-    let op1 = "rock";
-    let op2 = "paper";
-    let op3 = "scissors";
-    let playerResponse = playerAnswer.toLowerCase();
-    if(playerResponse === op1 || playerResponse === op2
-    || playerResponse === op3){
+    let playerAnswer = e.button.class;
+    if(playerResponse === "rock" || playerResponse === "paper"
+    || playerResponse === "scissors"){
         switch(getComputerChoice()){
             case 1: /*Comp rock*/
-                    if(playerResponse === op1){/*Player rock*/
+                    if(playerResponse === "rock"){/*Player rock*/
                         return console.log("It's a tie!")
                     }
-                    else if(playerResponse === op2){/*Player paper*/
+                    else if(playerResponse === "paper"){/*Player paper*/
                         playerWinCounter +=1;
                         }
-                    else if(playerResponse === op3){/*Player scissors*/
+                    else if(playerResponse === "scissors"){/*Player scissors*/
                         computerWinCounter +=1;
                     }
                     else{
@@ -41,13 +38,13 @@ let getPlayerChoice = function playerChoice(){
                     }
                 break;
             case 2:/*Comp paper */
-                    if(playerResponse === op1){ /*Player rock*/
+                    if(playerResponse === "rock"){ /*Player rock*/
                         computerWinCounter +=1;
                     }
-                    else if(playerResponse === op2){/*Player paper*/
+                    else if(playerResponse === "paper"){/*Player paper*/
                         return console.log("It's a tie!")
                     }
-                    else if(playerResponse === op3){/*Player scissors*/
+                    else if(playerResponse === "scissors"){/*Player scissors*/
                             playerWinCounter +=1;
                         }
                     else{
@@ -55,13 +52,13 @@ let getPlayerChoice = function playerChoice(){
                     }
                 break;
             case 3:/*Comp scissors*/
-                    if(playerResponse === op1){
+                    if(playerResponse === "rock"){
                         playerWinCounter +=1;
                         }
-                    else if(playerResponse === op2){/*Player paper*/
+                    else if(playerResponse === "paper"){/*Player paper*/
                         computerWinCounter +=1;
                     }
-                    else if(playerResponse === op3){/*Player scissors*/
+                    else if(playerResponse === "scissors"){/*Player scissors*/
                         return console.log("It's a tie!")
                     }
                     else{
@@ -71,8 +68,7 @@ let getPlayerChoice = function playerChoice(){
         }
     }
     else{
-        console.log("Please check your spelling and try again");
-        getPlayerChoice();
+        return;
     }
 }
 
