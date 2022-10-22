@@ -10,9 +10,14 @@ document.addEventListener('click', function(e){
     if(e.target.tagName != 'BUTTON'){
         return;
     }
+    else if(e.target.tagName === 'Restart'){
+        let playerWinCounter = 0;
+        let computerWinCounter = 0;
+        console.log('Game has been reset!');
+    }
     else{
         let playerResponse = e.target.className;
-        gameStart(playerResponse);
+        playGame(playerResponse);
     }
     //*/
    //console.log(e);   
@@ -21,26 +26,21 @@ document.addEventListener('click', function(e){
 /*
 
 /*Function to start the game */
-playGame = function gameStart(e){
-    do{
-        console.log(`Player:${playerWinCounter}. Computer:${computerWinCounter}`)
-        getPlayerChoice(playerResponse);
+playGame = function gameStart(playerResponse){
+    getPlayerChoice(playerResponse);
+    if(playerWinCounter <= 5){
+        return `Congrats! You win! Final score is ${playerWinCounter} to ${computerWinCounter}. Play again?`;
     }
-    while(playerWinCounter <= 5 || computerWinCounter <= 5){
-        if(playerWinCounter === 5){
-            return `Congrats! You win! Final score is ${playerWinCounter} to ${computerWinCounter}. Play again?`;
-        }
-        else if(computerWinCounter === 5){
-            return `Computer wins! Better luck next time! Final score is ${computerWinCounter} to ${playerWinCounter}. Play again?`
-        }
-        else{
-            return "Error at end game"
-        }
+    else if(computerWinCounter <= 5){
+        return `Computer wins! Better luck next time! Final score is ${computerWinCounter} to ${playerWinCounter}. Play again?`
+    }
+    else{
+        console.log(`Current score - Player:${playerWinCounter}. Computer:${computerWinCounter}`);
     }
 }
 
 /*Gets player choice based on button click*/
-let getPlayerChoice = function playerChoice(e){
+let getPlayerChoice = function playerChoice(){
     if(playerResponse = 'rock'){
         chooseWinner(playerResponse);
     }
