@@ -6,36 +6,54 @@ let computerWinCounter = 0;
     //console.log(e);
 //})
 document.addEventListener('click', function(e){
-    console.log(e.class);
+    ///*
+    if(e.target.tagName != 'BUTTON'){
+        return;
+    }
+    else{
+        let playerResponse = e.target.className;
+        gameStart(playerResponse);
+    }
+    //*/
+   //console.log(e);   
 });
 
 /*
-TO DO:
-Set an if function for each of the 3 buttons, if button.rock set __ = rock
-Then copy/paste that switch down there to it's own function, run the ___
-as an argument in that, and the rest of the code should work from there
-*/
-/*Get player's input, and test it against the random computer choice*/
 
+/*Function to start the game */
+playGame = function gameStart(e){
+    do{
+        console.log(`Player:${playerWinCounter}. Computer:${computerWinCounter}`)
+        getPlayerChoice(playerResponse);
+    }
+    while(playerWinCounter <= 5 || computerWinCounter <= 5){
+        if(playerWinCounter === 5){
+            return `Congrats! You win! Final score is ${playerWinCounter} to ${computerWinCounter}. Play again?`;
+        }
+        else if(computerWinCounter === 5){
+            return `Computer wins! Better luck next time! Final score is ${computerWinCounter} to ${playerWinCounter}. Play again?`
+        }
+        else{
+            return "Error at end game"
+        }
+    }
+}
+
+/*Gets player choice based on button click*/
 let getPlayerChoice = function playerChoice(e){
-    if(e = button){}
+    if(playerResponse = 'rock'){
+        chooseWinner(playerResponse);
+    }
+    else if(playerResponse = 'paper'){
+        chooseWinner(playerResponse);
+    }
+    else if(playerResponse = 'scissors'){
+        chooseWinner(playerResponse);
+    }
+    else return;
 }
 
-/*Chooses a random number between 1-3, and based on that logs rock/paper/scissors to the console*/
-let getComputerChoice = function randomChoice(){
-    let currentRoundChoice = Math.floor(Math.random()*3)+1;
-    if(currentRoundChoice === 1){
-        return currentRoundChoice = 1;
-    }
-    else if(currentRoundChoice === 2){
-        return currentRoundChoice = 2;
-    }
-    else if(currentRoundChoice === 3){
-        return currentRoundChoice = 3;
-    }
-}
-
-/*Chooses winner*/
+/*Gets the computer's random choice, then chooses a winner*/
 const chooseWinner = function chooseWinner(){
     switch(getComputerChoice()){
         case 1: /*Comp rock*/
@@ -83,21 +101,16 @@ const chooseWinner = function chooseWinner(){
     }
 }
 
-/*Function to start the game */
-playGame = function gameStart(){
-    do{
-        console.log(`Player:${playerWinCounter}. Computer:${computerWinCounter}`)
-        getPlayerChoice();
+/*Chooses a random number between 1-3, and based on that logs rock/paper/scissors to the console*/
+let getComputerChoice = function randomChoice(){
+    let currentRoundChoice = Math.floor(Math.random()*3)+1;
+    if(currentRoundChoice === 1){
+        return currentRoundChoice = 1;
     }
-    while(playerWinCounter <= 5 || computerWinCounter <= 5){
-        if(playerWinCounter === 5){
-            return `Congrats! You win! Final score is ${playerWinCounter} to ${computerWinCounter}. Play again?`;
-        }
-        else if(computerWinCounter === 5){
-            return `Computer wins! Better luck next time! Final score is ${computerWinCounter} to ${playerWinCounter}. Play again?`
-        }
-        else{
-            return "Error at end game"
-        }
+    else if(currentRoundChoice === 2){
+        return currentRoundChoice = 2;
+    }
+    else if(currentRoundChoice === 3){
+        return currentRoundChoice = 3;
     }
 }
